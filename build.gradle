@@ -8,7 +8,7 @@ buildscript {
 		maven { url "https://nexus.bertramlabs.com/content/repositories/publicReleases" }
     }
     dependencies {
-        classpath "com.github.johnrengelman:shadow:8.1.1"
+        classpath "com.gradleup.shadow:shadow-gradle-plugin:9.4.2"
 //        classpath "com.morpheusdata:morpheus-plugin-gradle:$morpheusApiVersion"
 		classpath "com.morpheusdata:morpheus-plugin-gradle:$morpheusGradleVersion"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:$assetPipelineVersion"
@@ -19,7 +19,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'idea'
-apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'com.gradleup.shadow'
 apply plugin: 'asset-pipeline'
 apply plugin: 'com.morpheusdata.morpheus-plugin-gradle'
 
@@ -122,7 +122,7 @@ assets {
 
 
 task(console, dependsOn: 'classes', type: JavaExec) {
-	main = 'groovy.ui.Console'
+	mainClass = 'groovy.ui.Console'
 	classpath = sourceSets.main.compileClasspath + sourceSets.main.runtimeClasspath
 }
 
